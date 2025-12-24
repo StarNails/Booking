@@ -1,14 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .hero {
-  padding: 80px 20px;
   background: linear-gradient(135deg, #ff5f9e, #ff8ccf);
   color: white;
+  padding: 100px 20px;
 }
 
 .hero h1 {
@@ -16,27 +27,74 @@ body {
   margin-bottom: 10px;
 }
 
-.hero p {
+.subtitle {
   font-size: 20px;
-  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.desc {
+  margin: 20px 0 40px;
 }
 
 .btn {
   background: white;
   color: #ff5f9e;
-  padding: 16px 32px;
-  border-radius: 30px;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-weight: 600;
   text-decoration: none;
   font-size: 18px;
-  font-weight: bold;
 }
 
-section {
-  padding: 50px 20px;
+.services h2,
+.trust h2,
+.reviews h2 {
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.grid div {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.trust {
+  background: #fff0f6;
+}
+
+.trust ul {
+  list-style: none;
+  padding: 0;
+}
+
+.trust li {
+  margin: 10px 0;
+}
+
+.reviews blockquote {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.cta {
+  background: #ff5f9e;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 footer {
   background: #f5f5f5;
   padding: 20px;
   font-size: 14px;
+  text-align: center;
 }
