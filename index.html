@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Nails - Pinellas Park, FL</title>
+    <title>Star Nails - Best Nail Salon in Pinellas Park, FL</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -15,7 +15,7 @@
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
         .bg-cream { background-color: #FFF9F9; }
         .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -25,105 +25,125 @@
             100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 3s ease-in-out infinite; }
+        
+        /* Smooth Scroll Behavior */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FFF9F9; }
+        ::-webkit-scrollbar-thumb { background: #EC4899; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #DB2777; }
     </style>
 </head>
 <body class="bg-cream text-gray-800">
 
+    <!-- Promo Banner -->
+    <div class="bg-gray-900 text-white text-center py-2 text-sm font-medium tracking-wide">
+        ✨ <span class="text-pink-400 font-bold">New Client Offer:</span> Get 10% OFF your first Gel Pedicure! Mention code "STARWEB" ✨
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav border-b border-pink-100">
+    <nav class="sticky top-0 w-full z-50 glass-nav border-b border-pink-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-2">
-                    <i data-lucide="star" class="text-pink-500 fill-pink-500 w-8 h-8"></i>
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="relative">
+                        <i data-lucide="star" class="text-pink-500 fill-pink-500 w-8 h-8 group-hover:rotate-180 transition duration-500"></i>
+                    </div>
                     <span class="text-2xl font-bold tracking-tighter text-gray-900 uppercase font-serif">Star <span class="text-pink-500">Nails</span></span>
-                </div>
+                </a>
                 
-                <div class="hidden md:flex space-x-8 font-medium">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 font-medium items-center">
                     <a href="#home" class="hover:text-pink-500 transition">Home</a>
                     <a href="#services" class="hover:text-pink-500 transition">Services</a>
                     <a href="#gallery" class="hover:text-pink-500 transition">Gallery</a>
-                    <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition shadow-lg shadow-pink-200">Book Now</a>
+                    <a href="#reviews" class="hover:text-pink-500 transition">Reviews</a>
+                    <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition shadow-lg shadow-pink-200 transform hover:scale-105">Book Now</a>
                 </div>
 
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-900">
-                        <i data-lucide="menu"></i>
+                    <button id="menu-btn" class="text-gray-900 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-100 p-4 space-y-4 shadow-xl">
-            <a href="#home" class="block w-full py-2 border-b border-pink-50">Home</a>
-            <a href="#services" class="block w-full py-2 border-b border-pink-50">Services</a>
-            <a href="#gallery" class="block w-full py-2 border-b border-pink-50">Gallery</a>
-            <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="block w-full text-center bg-pink-500 text-white py-3 rounded-xl">Book Now</a>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-100 absolute w-full left-0 shadow-xl">
+            <div class="p-4 space-y-4">
+                <a href="#home" class="block w-full py-2 border-b border-pink-50 text-lg">Home</a>
+                <a href="#services" class="block w-full py-2 border-b border-pink-50 text-lg">Services</a>
+                <a href="#gallery" class="block w-full py-2 border-b border-pink-50 text-lg">Gallery</a>
+                <a href="#reviews" class="block w-full py-2 border-b border-pink-50 text-lg">Reviews</a>
+                <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="block w-full text-center bg-pink-500 text-white py-3 rounded-xl font-bold">Book Now</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <header id="home" class="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:w-1/2">
-                <span class="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-600 text-sm font-semibold mb-6">
-                    Voted Best Nail Salon in Pinellas Park
-                </span>
-                <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8">
-                    Treat Your <span class="italic text-pink-500 underline decoration-pink-200">Hands</span> to Perfection.
+                <div class="flex items-center space-x-2 mb-6 animate-fade-in-up">
+                    <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-600 text-xs font-bold uppercase tracking-wider">
+                        Pinellas Park's Favorite
+                    </span>
+                    <div class="flex text-yellow-400">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-8 font-serif">
+                    Where Your <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Nails Shine</span> <br>
+                    Like Stars.
                 </h1>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg">
-                    Experience premium nail care in a relaxing environment with our highly skilled technicians.
+                
+                <p class="text-lg text-gray-600 mb-10 leading-relaxed max-w-lg">
+                    Welcome to Star Nails on Park Blvd. We specialize in deep French tips, custom acrylics, and relaxing spa pedicures. Come relax with our friendly team!
                 </p>
+                
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="flex items-center justify-center space-x-2 bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-800 transition transform hover:scale-105 shadow-xl">
-                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="flex items-center justify-center space-x-2 bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-pink-600 transition shadow-xl hover:shadow-pink-500/20">
+                        <i data-lucide="calendar-check" class="w-5 h-5"></i>
                         <span>Book Appointment</span>
                     </a>
-                    <a href="#gallery" class="flex items-center justify-center space-x-2 border-2 border-gray-200 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-bold hover:border-pink-300 transition">
-                        <i data-lucide="camera" class="w-5 h-5"></i>
-                        <span>View Designs</span>
+                    <a href="#gallery" class="flex items-center justify-center space-x-2 bg-white text-gray-900 border border-gray-200 px-8 py-4 rounded-full text-lg font-bold hover:border-pink-500 hover:text-pink-500 transition">
+                        <span>View Our Work</span>
                     </a>
                 </div>
                 
-                <div class="mt-12 flex items-center space-x-6">
-                    <div class="flex -space-x-4">
-                        <img src="https://i.pravatar.cc/100?img=21" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
-                        <img src="https://i.pravatar.cc/100?img=22" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
-                        <img src="https://i.pravatar.cc/100?img=23" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
-                        <img src="https://i.pravatar.cc/100?img=24" class="w-12 h-12 rounded-full border-2 border-white object-cover" alt="User">
+                <div class="mt-12 p-4 bg-white/60 backdrop-blur rounded-2xl border border-white inline-flex items-center gap-4">
+                    <div class="flex -space-x-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
                     </div>
-                    <div>
-                        <div class="flex text-yellow-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <div class="relative">
-                                <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
-                                <div class="absolute top-0 left-0 w-[60%] overflow-hidden text-yellow-400">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col">
-                            <p class="text-sm font-medium text-gray-900">4.6/5 on Google Reviews</p>
-                            <a href="https://g.page/r/CcE3iCnM61xLEBM/review" target="_blank" class="text-xs text-pink-500 hover:underline flex items-center mt-1">
-                                Write a review <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
-                            </a>
-                        </div>
+                    <div class="text-sm">
+                        <p class="font-bold text-gray-900">4.6 Stars on Google</p>
+                        <a href="https://g.page/r/CcE3iCnM61xLEBM/review" target="_blank" class="text-pink-500 hover:underline">Read our 800+ reviews</a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full hidden lg:block">
+        <!-- Hero Background Image -->
+        <div class="absolute top-0 right-0 w-full lg:w-[55%] h-full hidden lg:block">
             <img 
-                src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=1200" 
-                class="w-full h-full object-cover rounded-bl-[100px]" 
-                alt="Nail Salon Interior"
+                src="https://images.unsplash.com/photo-1604654894610-df490668f814?auto=format&fit=crop&q=80&w=1200" 
+                class="w-full h-full object-cover rounded-bl-[80px]" 
+                alt="Luxury Nail Art"
             >
-            <div class="absolute inset-0 bg-gradient-to-l from-transparent to-[#FFF9F9]"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#FFF9F9] via-[#FFF9F9]/50 to-transparent"></div>
         </div>
     </header>
 
@@ -131,159 +151,247 @@
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Our Services</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">From essential care to artistic masterpieces, we bring your vision to life.</p>
+                <span class="text-pink-500 font-bold uppercase tracking-wider text-sm">What We Do Best</span>
+                <h2 class="text-4xl font-serif font-bold mt-2 mb-4">Premium Nail Services</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-pink-50 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1610991148660-84ba5df5d225?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Manicure">
-                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-bold text-pink-600">$25+</div>
+                <div class="group p-6 rounded-2xl bg-gray-50 hover:bg-pink-50 transition duration-300 border border-transparent hover:border-pink-100">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-pink-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="sparkles" class="w-7 h-7"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition">Classic Manicure</h3>
-                        <p class="text-gray-500 text-sm mb-4">Nail shaping, cuticle care, relaxing hand massage, and regular polish.</p>
-                        <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="text-pink-500 font-bold flex items-center space-x-1 cursor-pointer">
-                            <span>Book This</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-xl font-bold mb-2">Acrylic & Dipping</h3>
+                    <p class="text-gray-500 text-sm mb-4">Strong, durable, and natural-looking enhancements. Perfect for lengthening.</p>
+                    <span class="text-gray-900 font-bold block">$35+</span>
                 </div>
+
                 <!-- Service 2 -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-pink-50 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1604654894610-df490668f814?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Gel">
-                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-bold text-pink-600">$40+</div>
+                <div class="group p-6 rounded-2xl bg-gray-50 hover:bg-pink-50 transition duration-300 border border-transparent hover:border-pink-100">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-pink-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="palette" class="w-7 h-7"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition">Gel Polish</h3>
-                        <p class="text-gray-500 text-sm mb-4">High-shine, chip-resistant color that lasts up to 3 weeks.</p>
-                        <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="text-pink-500 font-bold flex items-center space-x-1 cursor-pointer">
-                            <span>Book This</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-xl font-bold mb-2">Gel Polish</h3>
+                    <p class="text-gray-500 text-sm mb-4">Hundreds of colors. High shine, instant dry, and lasts up to 3 weeks.</p>
+                    <span class="text-gray-900 font-bold block">$40+</span>
                 </div>
+
                 <!-- Service 3 -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-pink-50 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Art">
-                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-bold text-pink-600">$55+</div>
+                <div class="group p-6 rounded-2xl bg-gray-50 hover:bg-pink-50 transition duration-300 border border-transparent hover:border-pink-100">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-pink-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="brush" class="w-7 h-7"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition">Luxury Nail Art</h3>
-                        <p class="text-gray-500 text-sm mb-4">Custom designs, ombre, French tips, and 3D embellishments.</p>
-                        <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="text-pink-500 font-bold flex items-center space-x-1 cursor-pointer">
-                            <span>Book This</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-xl font-bold mb-2">Custom Nail Art</h3>
+                    <p class="text-gray-500 text-sm mb-4">Ombre, deep French tips, 3D designs, and chrome effects.</p>
+                    <span class="text-gray-900 font-bold block">$5+ /nail</span>
                 </div>
+
                 <!-- Service 4 -->
-                <div class="group bg-white rounded-3xl overflow-hidden border border-pink-50 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1519415510236-85592ac59c6c?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Pedicure">
-                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-bold text-pink-600">$45+</div>
+                <div class="group p-6 rounded-2xl bg-gray-50 hover:bg-pink-50 transition duration-300 border border-transparent hover:border-pink-100">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-pink-500 shadow-sm mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="footprints" class="w-7 h-7"></i>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-500 transition">Signature Pedicure</h3>
-                        <p class="text-gray-500 text-sm mb-4">Herbal soak, exfoliation, callus removal, and hot stone massage.</p>
-                        <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="text-pink-500 font-bold flex items-center space-x-1 cursor-pointer">
-                            <span>Book This</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-xl font-bold mb-2">Deluxe Pedicure</h3>
+                    <p class="text-gray-500 text-sm mb-4">Relax in our massage chairs with hot stone treatment and sugar scrub.</p>
+                    <span class="text-gray-900 font-bold block">$45+</span>
                 </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://book.squareup.com/appointments/lxm13zscegfa3y/location/LAQ0TBKYM4Y36/services?gei=fTVMaf2GBreWwbkP3dbQwQI&hl=vi-US&rwg_token=ACgRB3c5S8j9MZFUbDDk9rHn8U07WjznxYJ2VRwtGrucZQ1YdNp9tE19plB3TqB-FR4rK4VGFqSMI2yiOqu54IYIbc6zRdO4ow%3D%3D" target="_blank" class="text-pink-600 font-bold hover:underline inline-flex items-center">
+                    View Full Service Menu & Prices <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery -->
+    <!-- Expanded Gallery Section -->
     <section id="gallery" class="py-20 bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
-                    <h2 class="text-4xl font-bold mb-4">Trending Designs</h2>
-                    <p class="text-gray-500">Check out our latest work at Pinellas Park.</p>
+                    <h2 class="text-4xl font-serif font-bold mb-4">Our Gallery</h2>
+                    <p class="text-gray-500">Real designs. Real inspiration. Styles you'll love.</p>
                 </div>
-                <a href="#" class="text-gray-900 font-bold border-b-2 border-pink-500 pb-1 hover:text-pink-500 transition">Follow us on Instagram</a>
+                <div class="flex space-x-2">
+                    <span class="bg-white border px-3 py-1 rounded-full text-xs font-bold text-gray-600">#FrenchTips</span>
+                    <span class="bg-white border px-3 py-1 rounded-full text-xs font-bold text-gray-600">#Ombre</span>
+                    <span class="bg-white border px-3 py-1 rounded-full text-xs font-bold text-gray-600">#StarNails</span>
+                </div>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1522337360744-c7341d22ff9a?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 1">
+            
+            <!-- Grid 12 Images -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Row 1 -->
+                <div class="aspect-[4/5] rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Nail Design">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 2">
+                <div class="aspect-[4/5] rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df490668f814?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Red Nails">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 3">
+                <div class="aspect-[4/5] rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Pastel Nails">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1500004621732-74cc4df0330b?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 4">
+                <div class="aspect-[4/5] rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Manicure">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 5">
+                
+                <!-- Row 2 -->
+                <div class="aspect-square rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1599693918968-36424e240244?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Nail Art">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1571290274554-e94518f23e11?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Nail 6">
+                <div class="aspect-square rounded-xl overflow-hidden group relative col-span-2 row-span-2">
+                    <img src="https://images.unsplash.com/photo-1501459277917-04a80f948074?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Salon Interior">
+                    <div class="absolute bottom-4 left-4 bg-white/90 px-4 py-2 rounded-lg text-sm font-bold">Relaxing Atmosphere</div>
                 </div>
+                <div class="aspect-square rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1571290274554-e94518f23e11?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Glitter Nails">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="aspect-square rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1629213567622-6302970725a3?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Detailed Art">
+                </div>
+                <div class="aspect-square rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1595867419958-f542a2083556?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Pedicure">
+                </div>
+                 <div class="aspect-square rounded-xl overflow-hidden group relative">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Nail Polish Bottles">
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-xs text-gray-400 italic mb-4">* Images for inspiration. Please show your technician a photo for custom requests!</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-white pt-20 pb-10 border-t border-pink-100">
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <h2 class="text-3xl font-serif font-bold text-center mb-12">Loved by Locals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-cream p-8 rounded-3xl relative">
+                    <i data-lucide="quote" class="absolute top-8 right-8 text-pink-200 w-10 h-10"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Heather and her team at Star Nails are awesome! Alex and Tina are amazing. Highly recommend for deep French tips!"</p>
+                    <div class="font-bold">Christine Martinez</div>
+                    <div class="text-xs text-gray-400">Google Review</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-cream p-8 rounded-3xl relative">
+                    <i data-lucide="quote" class="absolute top-8 right-8 text-pink-200 w-10 h-10"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"My latest set is one of the best I've ever had. The salon is beautiful and comfortable. Very clean!"</p>
+                    <div class="font-bold">Lauren Pagonis</div>
+                    <div class="text-xs text-gray-400">Google Review</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-cream p-8 rounded-3xl relative">
+                    <i data-lucide="quote" class="absolute top-8 right-8 text-pink-200 w-10 h-10"></i>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Always great service, very clean and always receive with smile. Best place in Pinellas Park."</p>
+                    <div class="font-bold">Silvia Flores Tapia</div>
+                    <div class="text-xs text-gray-400">Google Review</div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://g.page/r/CcE3iCnM61xLEBM/review" target="_blank" class="inline-block border-b-2 border-gray-900 pb-1 font-bold hover:text-pink-500 hover:border-pink-500 transition">Write your own review</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Map -->
+    <footer id="contact" class="bg-white pt-20 border-t border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                <!-- Info Column -->
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
                         <i data-lucide="star" class="text-pink-500 fill-pink-500 w-6 h-6"></i>
                         <span class="text-xl font-bold tracking-tight uppercase font-serif">Star <span class="text-pink-500">Nails</span></span>
                     </div>
-                    <p class="text-gray-500">Dedicated to providing the best nail salon experience in Pinellas Park since 2010.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-6 underline decoration-pink-300">Quick Links</h4>
-                    <ul class="space-y-4 text-gray-500">
-                        <li><a href="#" class="hover:text-pink-500 transition">About Us</a></li>
-                        <li><a href="#services" class="hover:text-pink-500 transition">Our Services</a></li>
-                        <li><a href="https://g.page/r/CcE3iCnM61xLEBM/review" target="_blank" class="hover:text-pink-500 transition">Write a Review</a></li>
-                    </ul>
+                    <p class="text-gray-500 mb-8 max-w-sm">
+                        Dedicated to providing the best nail salon experience in Pinellas Park. Walk-ins Welcome!
+                    </p>
+                    
+                    <div class="space-y-4 text-gray-600">
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="text-pink-500 w-5 h-5 mt-1 shrink-0"></i>
+                            <div>
+                                <span class="font-bold text-gray-900 block">Address</span>
+                                <a href="https://maps.google.com/?q=Star+Nails+6539+Park+Blvd+Pinellas+Park+FL+33781" target="_blank" class="hover:text-pink-500">6539 Park Blvd, Pinellas Park, FL 33781</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="phone" class="text-pink-500 w-5 h-5 mt-1 shrink-0"></i>
+                            <div>
+                                <span class="font-bold text-gray-900 block">Phone</span>
+                                <a href="tel:7275448707" class="hover:text-pink-500">727-544-8707</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="clock" class="text-pink-500 w-5 h-5 mt-1 shrink-0"></i>
+                            <div>
+                                <span class="font-bold text-gray-900 block">Hours</span>
+                                <span class="block">Mon - Fri: 09:30 AM - 07:30 PM</span>
+                                <span class="block">Sat: 09:00 AM - 07:00 PM</span>
+                                <span class="block">Sun: 11:00 AM - 05:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold mb-6 underline decoration-pink-300">Opening Hours</h4>
-                    <ul class="space-y-2 text-gray-500 text-sm">
-                        <li class="flex justify-between"><span>Mon - Fri:</span> <span>09:30 AM - 07:30 PM</span></li>
-                        <li class="flex justify-between"><span>Sat:</span> <span>09:00 AM - 07:00 PM</span></li>
-                        <li class="flex justify-between"><span>Sun:</span> <span>11:00 AM - 05:00 PM</span></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-6 underline decoration-pink-300">Contact Us</h4>
-                    <ul class="space-y-4 text-gray-500 text-sm">
-                        <li class="flex items-start space-x-3">
-                            <i data-lucide="map-pin" class="text-pink-500 w-5 h-5 shrink-0"></i>
-                            <a href="https://maps.google.com/?q=Star+Nails+6539+Park+Blvd+Pinellas+Park+FL+33781" target="_blank" class="hover:text-pink-500 transition">6539 Park Blvd, Pinellas Park, FL 33781</a>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i data-lucide="phone" class="text-pink-500 w-5 h-5 shrink-0"></i>
-                            <a href="tel:7275448707" class="hover:text-pink-500 transition">727-544-8707</a>
-                        </li>
-                    </ul>
+                <!-- Map Column -->
+                <div class="h-64 lg:h-auto rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.6186252329885!2d-82.72911222453673!3d27.84365797610629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2e5b7c7b8b8b7%3A0x1a8f94d9b4c09d0!2s6539%20Park%20Blvd%2C%20Pinellas%20Park%2C%20FL%2033781!5e0!3m2!1sen!2sus!4v1709560000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
-            <div class="border-t pt-8 text-center text-gray-400 text-xs">
+            
+            <div class="border-t pt-8 pb-8 text-center text-gray-400 text-xs">
                 &copy; 2025 Star Nails Studio Pinellas Park. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Chat Bot Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button id="chat-btn" class="bg-pink-500 text-white p-4 rounded-full shadow-2xl hover:bg-pink-600 transition-all animate-float">
-            <i data-lucide="message-circle" class="w-8 h-8"></i>
+    <!-- Chat/Call Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50 group">
+        <button id="chat-btn" class="bg-pink-500 text-white p-4 rounded-full shadow-2xl hover:bg-pink-600 transition-all animate-float flex items-center justify-center">
+            <i data-lucide="phone-call" class="w-7 h-7"></i>
         </button>
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+            Call us now!
+        </span>
     </div>
 
     <!-- Scripts -->
@@ -299,30 +407,17 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Simple Chat Prompt
-        const chatBtn = document.getElementById('chat-btn');
-        chatBtn.addEventListener('click', () => {
-            const phoneNumber = "7275448707";
-            const confirmCall = confirm("Would you like to call Star Nails at 727-544-8707 for consultation?");
-            if (confirmCall) {
-                window.location.href = `tel:${phoneNumber}`;
-            }
+        // Click on menu item closes mobile menu
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    if(!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
+        // Call Button Logic
+        const chatBtn = document.getElementById('chat-btn');
+        chatBtn.addEventListener('click', () => {
+            window.location.href = "tel:7275448707";
         });
     </script>
 </body>
